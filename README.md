@@ -1,3 +1,4 @@
+![Intune Architecture Overview](intro.png)
 # Microsoft Intune Windows Architecture – Start to Finish
 
 This repository defines a **complete, ordered Microsoft Intune architecture** for managing Windows devices.
