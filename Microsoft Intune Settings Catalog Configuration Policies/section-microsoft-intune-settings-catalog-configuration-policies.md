@@ -48,7 +48,7 @@ Application and service configuration is enforced through Settings Catalog for M
 
 ## Device Configuration Policy List
 
-The following configuration policies are implemented using the Microsoft Intune Settings Catalog. These policies must be enforced through Device Configuration and are not managed through Endpoint Security. You can review all related details [here](https://github.com/YasharMeidaniBranchinnovations/Updatingourapproachtointune/blob/main/Microsoft%20Intune%20Settings%20Catalog%20Configuration%20Policies/SETTINGSOUTPUT.md). The Json files are all ready to import in [here] (https://github.com/YasharMeidaniBranchinnovations/Updatingourapproachtointune/tree/main/Microsoft%20Intune%20Settings%20Catalog%20Configuration%20Policies/SettingsCatalog)
+The following configuration policies are implemented using the Microsoft Intune Settings Catalog. These policies must be enforced through Device Configuration and are not managed through Endpoint Security. You can review all related details [here](https://github.com/YasharMeidaniBranchinnovations/Updatingourapproachtointune/blob/main/Microsoft%20Intune%20Settings%20Catalog%20Configuration%20Policies/SETTINGSOUTPUT.md). The Json files are all ready to import in [here](https://github.com/YasharMeidaniBranchinnovations/Updatingourapproachtointune/tree/main/Microsoft%20Intune%20Settings%20Catalog%20Configuration%20Policies/SettingsCatalog))
 
 
 
