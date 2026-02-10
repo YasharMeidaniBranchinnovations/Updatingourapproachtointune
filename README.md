@@ -4,10 +4,9 @@ This repository defines a **complete, ordered Microsoft Intune architecture** fo
 
 It is not a collection of documents.  
 It is a **pipeline**.
-
+Each section depends on the previous one.
 Read and implement **top to bottom**.  
 
-Each section depends on the previous one.
 ---
 ## Rule for This Repository
 
