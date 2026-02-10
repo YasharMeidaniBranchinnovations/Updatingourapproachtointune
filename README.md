@@ -6,6 +6,7 @@ It is not a collection of documents.
 It is a **pipeline**.
 
 Read and implement **top to bottom**.  
+
 Each section depends on the previous one.
 ---
 ## Rule for This Repository
