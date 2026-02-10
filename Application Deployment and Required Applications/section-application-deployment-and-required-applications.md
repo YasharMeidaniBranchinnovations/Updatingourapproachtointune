@@ -1,59 +1,83 @@
-# Application Deployment and Required Applications
+# Microsoft Intune Windows Architecture
 
-## Objective
+Read and implement in order. Each section depends on the previous one.
 
-Define how applications are delivered, enforced, and validated during Windows Autopilot provisioning to ensure that a device exiting enrollment is fully operational, role appropriate, and ready for productive use.
+---
 
-## Why This Layer Exists
+## Start to End Read Order
 
-Enrollment, identity, and security establish trust, but they do not make a device usable. A successfully enrolled and secured device with no applications is not a complete deployment. Application deployment is therefore treated as a first class layer of the Autopilot build process. This layer defines what software exists on the device, how it is delivered, how it is updated, and what constitutes a production ready endpoint.
+### 1. Identity and Control Foundation
 
-## Position in the Autopilot Flow
+1. [Microsoft Entra ID Identity Foundation](Microsoft%20Entra%20ID%20Identity%20Foundation/section-microsoft-entra-id-identity-foundation.md)
+2. [Microsoft Entra ID Grouping and Targeting Model](Microsoft%20Entra%20ID%20Grouping%20and%20Targeting%20Model/section-microsoft-entra-id-grouping-and-targeting-model.md)
+3. [Microsoft Intune Role Based Access Control](Microsoft%20Intune%20Role%20Based%20Access%20Control/section-microsoft-intune-role-based-access-control.md)
 
-Application deployment occurs after Microsoft Entra ID authentication and Intune enrollment and is enforced during provisioning through the Enrollment Status Page when configured. Required applications are installed before the user is granted access to the desktop. Optional applications are made available after provisioning through the Company Portal. A device is not considered complete until required applications are installed successfully.
+---
 
-## Application Delivery Mechanisms in Intune
+### 2. Enrollment Control and Device Entry
 
-Applications are delivered using supported Microsoft Intune application models. Win32 applications are used for line of business software, developer tooling, utilities, and any application requiring custom installation logic, detection rules, or dependency handling. Microsoft Store applications are used where supported to simplify installation and servicing. Microsoft 365 Apps for Windows are deployed using the native Microsoft 365 Apps deployment model to ensure consistent configuration and update behavior. PowerShell scripts are used only where an application cannot be packaged cleanly or where post installation configuration is required.
+4. [Windows Enrollment Restrictions and Allowed Join Types](Windows%20Enrollment%20Restrictions%20and%20Allowed%20Join%20Types/section-windows-enrollment-restrictions-and-allowed-join-types.md)
+5. [Bring Your Own Device%20(BYOD)%20Access%20Model](Bring%20Your%20Own%20Device%20(BYOD)%20Access%20Model/section-byod-access-model.md)
 
-## Core Required Application Baseline
+---
 
-Every provisioned device must meet a defined core application baseline before it is considered ready. This baseline applies to all corporate managed devices regardless of role and represents the minimum software required for identity access, communication, and productivity.
+### 3. Windows Autopilot Provisioning
 
-The following applications are mandatory on all devices and are deployed as required applications through Intune. Microsoft 365 Apps for Windows are installed to provide Outlook, Microsoft Teams, Word, Excel, PowerPoint, and supporting productivity services. Microsoft Edge is installed and managed to ensure compatibility with Microsoft identity, Conditional Access enforcement, and Microsoft 365 application integrations. The Intune Company Portal is installed to provide user self service access to optional applications, remediation actions, and device information. Where Microsoft Defender for Endpoint is used, the Defender for Endpoint onboarding package is installed to enable endpoint detection, device risk signaling, and integration with Conditional Access.
+6. [Windows Autopilot Device Registration](Windows%20Autopilot%20Device%20Registration/section-windows-autopilot-device-registration.md)
+7. [Autopilot Device Grouping and Deployment Profiles](Autopilot%20Device%20Grouping%20and%20Deployment%20Profiles/section-autopilot-device-grouping-and-deployment-profiles.md)
+8. [Enrollment Status Page%20(ESP)](Enrollment%20Status%20Page%20(ESP)/section-enrollment-status-page-esp.md)
+9. [Triggering Autopilot Provisioning and Verifying Deployment](Triggering%20Autopilot%20Provisioning%20and%20Verifying%20Deployment/section-triggering-autopilot-provisioning-and-verifying-deployment.md)
+10. [Troubleshooting Windows Autopilot Deployments](Troubleshooting%20Windows%20Autopilot%20Deployments/section-troubleshooting-windows-autopilot-deployments.md)
 
-Where access to internal resources requires a network access client, the approved VPN or Zero Trust network agent is included as part of the core baseline. If the organization operates fully on SaaS services, this component is omitted.
+---
 
-These applications are enforced during provisioning. If any core required application fails to install, the Enrollment Status Page blocks device access and provisioning does not complete.
+### 4. Compliance, Trust, and Access Enforcement
 
-## Role Based Required Applications
+11. [Microsoft Intune Compliance Policies](Microsoft%20Intune%20Compliance%20Policies/section-microsoft-intune-compliance-policies.md)
+12. [Microsoft Intune Windows Compliance Baseline](Microsoft%20Intune%20Windows%20Compliance%20Baseline/section-microsoft-intune-windows-compliance-baseline.md)
+13. [Conditional Access Integration and Enforcement Model](Conditional%20Access%20Integration%20and%20Enforcement%20Model/section-conditional-access-integration-and-enforcement-model.md)
 
-Beyond the core baseline, additional applications are deployed based on role. Role based applications are required for specific job functions and are assigned automatically using Microsoft Entra ID group membership. Users do not choose these applications and cannot remove them.
+---
 
-For development roles, required applications include Visual Studio Code, Git for Windows, Windows Subsystem for Linux, and Docker Desktop or equivalent container tooling where applicable. For analytics and business intelligence roles, required applications include Power BI Desktop and any approved data access or modeling tools required for reporting or analysis. For IT operations and support roles, required applications include Microsoft Intune Remote Help and approved administrative or diagnostic tooling necessary to support end users and managed devices.
+### 5. Endpoint Security and Privilege Control
 
-Role based applications are installed automatically during or immediately after provisioning depending on enforcement requirements. Where role based applications are critical for day one productivity, they may be enforced during the Enrollment Status Page. Where timing is less critical, they are installed post sign in but remain required.
+14. [Microsoft Intune Endpoint Security Configuration Policies](Microsoft%20Intune%20Endpoint%20Security%20Configuration%20Policies/section-microsoft-intune-endpoint-security-configuration-policies.md)
+15. [Microsoft Intune Local Group Management](Microsoft%20Intune%20Local%20Group%20Management/section-microsoft-intune-local-group-management.md)
 
-## Optional Applications
+---
 
-Applications that are not required for baseline operation or role fulfillment are published as optional. Optional applications are delivered through the Intune Company Portal and may be installed by the user on demand without administrative rights. Examples include secondary browsers such as Google Chrome or Mozilla Firefox, non essential developer utilities, productivity add ons, and other approved tools. Optional applications never block provisioning and are not part of the device readiness definition.
+### 6. Configuration Hardening
 
-## Dependency Handling and Installation Order
+16. [Microsoft Intune Settings Catalog Configuration Policies](Microsoft%20Intune%20Settings%20Catalog%20Configuration%20Policies/section-microsoft-intune-settings-catalog-configuration-policies.md)
 
-Where application dependencies exist, Intune dependency handling is used to enforce correct installation order. Core required applications are installed and evaluated first, followed by role based required applications. Optional applications are excluded from provisioning dependency chains to avoid unnecessary delays or failures.
+---
 
-## Update Ownership and Responsibility
+### 7. Applications and Productivity
 
-Update responsibility is explicitly defined per application. Applications deployed and managed through Intune follow Intune controlled update behavior. Applications with built in vendor update mechanisms are allowed to update themselves unless explicitly restricted. Ownership of update responsibility is documented to prevent overlap, missed updates, or conflicting servicing models.
+17. [Application Deployment and Required Applications](Application%20Deployment%20and%20Required%20Applications/section-application-deployment-and-required-applications.md)
+18. [Microsoft Intune Remote Help](Microsoft%20Intune%20Remote%20Help/section-microsoft-intune-remote-help.md)
 
-## Definition of a Ready Device
+---
 
-A device is considered ready when identity enrollment has completed, Endpoint Security baselines are enforced, required configuration policies are applied, and all core required and role based required applications have installed successfully. At this point, the user can sign in and begin work without additional setup, administrative access, or manual software installation.
+### 8. Updates and Lifecycle Control
 
-## Operational Impact
+19. [Windows Update for Business Ring Model%20(WUfB)](Windows%20Update%20for%20Business%20Ring%20Model%20(WUfB)/section-windows-update-for-business-ring-model.md)
 
-Treating applications as a formal provisioning layer ensures consistency across deployments, reduces support burden, and eliminates post enrollment manual work. Users receive a predictable experience, IT maintains control over required software, and Autopilot delivers a complete end to end provisioning outcome rather than a partially configured system.
+---
 
-## Summary
+### 9. Health Monitoring and Validation
 
-Application deployment completes the Autopilot lifecycle. Identity establishes trust, security establishes protection, configuration defines behavior, and applications enable productivity. A device exiting Autopilot without its required applications is not complete. This model ensures every device is secure, configured, and immediately usable.
+20. [Microsoft Intune Tenant Platform Health Monitoring%20%E2%80%93%20Endpoint%20Analytics](Microsoft%20Intune%20Tenant%20Platform%20Health%20Monitoring%20%E2%80%93%20Endpoint%20Analytics/section-microsoft-intune-tenant-platform-health-monitoring-endpoint-analytics.md)
+
+---
+
+## One Line Mental Model
+
+Identity decides who  
+Enrollment decides if  
+Autopilot decides how  
+Security decides trust  
+Configuration decides behavior  
+Applications decide usability  
+Updates decide stability  
+Analytics decides truth
