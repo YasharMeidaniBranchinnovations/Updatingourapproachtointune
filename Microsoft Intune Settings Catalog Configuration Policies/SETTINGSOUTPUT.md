@@ -1,7 +1,4 @@
 
-###### Table 30. Settings - Win - OIB - SC - Credential Management - D - Passwordless - v3.3
-
-
 <h3 id="section-18">Win - OIB - SC - Defender Antivirus - D - Additional Configuration - v3.6</h3>
 
 <table class='table-settings'>
