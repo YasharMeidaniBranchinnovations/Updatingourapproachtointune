@@ -52,7 +52,8 @@ Authentication security is enforced through Windows Hello for Business core conf
 
 ## Endpoint Security Policy List
 
-The following policies are implemented using Microsoft Intune Endpoint Security and represent mandatory baseline controls. You can find the details in here.
+The following policies are implemented using Microsoft Intune Endpoint Security and represent mandatory baseline controls. You can review all related details [here](https://github.com/YasharMeidaniBranchinnovations/Updatingourapproachtointune/blob/main/Microsoft%20Intune%20Settings%20Catalog%20Configuration%20Policies/SETTINGSOUTPUT.md). The Json files are all ready to import in [here](https://github.com/YasharMeidaniBranchinnovations/Updatingourapproachtointune/tree/main/Microsoft%20Intune%20Settings%20Catalog%20Configuration%20Policies/SettingsCatalog)
+
 
 ## Explicit Exclusions
 
