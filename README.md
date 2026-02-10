@@ -17,8 +17,8 @@ Each section depends on the previous one.
 These sections define identity, grouping, and administrative boundaries.  
 Nothing else works if these are wrong.
 
-1. [Microsoft Entra ID Identity Foundation](Microsoft%20Entra%20ID%20Identity%20Foundation/section-microsoft-entra-id-identity-foundation.md)
-2. [Microsoft Entra ID Grouping and Targeting Model](Microsoft%20Entra%20ID%20Grouping%20and%20Targeting%20Model/section-microsoft-entra-id-grouping-and-targeting-model.md)
+1. [Microsoft Entra ID Identity Foundation](Prerequisites/Microsoft-EntraID-Identity-Foundation.md)
+2. [Microsoft Entra ID Grouping and Targeting Model](Prerequisites/Microsoft-Entra%20ID-Grouping-and-Targeting-Model.md)
 3. [Microsoft Intune Role Based Access Control](Microsoft%20Intune%20Role%20Based%20Access%20Control/section-microsoft-intune-role-based-access-control.md)
 
 ---
