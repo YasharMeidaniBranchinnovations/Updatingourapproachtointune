@@ -7,6 +7,16 @@ It is a **pipeline**.
 
 Read and implement **top to bottom**.  
 Each section depends on the previous one.
+---
+## Rule for This Repository
+
+- One folder = one architectural stage
+- Folder name = section title
+- Section file lives inside the folder
+- Read order is enforced by this README
+- Do not reorganize without changing the pipeline
+
+This is intentional.
 
 ---
 
@@ -97,25 +107,4 @@ This section defines **how you know the platform is actually healthy**.
 
 ---
 
-## One Line Mental Model
 
-Identity decides who  
-Enrollment decides if  
-Autopilot decides how  
-Security decides trust  
-Configuration decides behavior  
-Applications decide usability  
-Updates decide stability  
-Analytics decides truth
-
----
-
-## Rule for This Repository
-
-- One folder = one architectural stage
-- Folder name = section title
-- Section file lives inside the folder
-- Read order is enforced by this README
-- Do not reorganize without changing the pipeline
-
-This is intentional.
