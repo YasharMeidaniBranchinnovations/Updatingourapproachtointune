@@ -612,7 +612,7 @@
         "choiceSettingValue": {
           "@odata.type": "#microsoft.graph.deviceManagementConfigurationChoiceSettingValue",
           "settingValueTemplateReference": null,
-          "value": "device_vendor_msft_policy_config_audit_objectaccess_auditdetailedfileshare_2",
+          "value": "device_vendor_msft_policy_config_audit_objectaccess_auditdetailedfileshare_3",
           "children@odata.type": "#Collection(microsoft.graph.deviceManagementConfigurationSettingInstance)",
           "children": []
         }
@@ -830,4 +830,5 @@
     "target": "https://graph.microsoft.com/beta/deviceManagement/configurationPolicies('24eba4ff-3d7e-40b4-9241-9ec567d8a959')/microsoft.graph.retrieveLatestUpgradeDefaultBaselinePolicy"
   }
 }
+
 
