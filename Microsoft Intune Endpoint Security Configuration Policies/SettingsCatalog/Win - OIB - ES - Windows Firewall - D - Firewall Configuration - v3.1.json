@@ -430,7 +430,7 @@
                                                                                                  "simpleSettingValue":  {
                                                                                                                             "@odata.type":  "#microsoft.graph.deviceManagementConfigurationIntegerSettingValue",
                                                                                                                             "settingValueTemplateReference":  null,
-                                                                                                                            "value":  16384
+                                                                                                                            "value":  65536
                                                                                                                         }
                                                                                              },
                                                                                              {
